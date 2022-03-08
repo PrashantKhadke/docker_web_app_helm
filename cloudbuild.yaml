@@ -32,4 +32,4 @@ tags: ['gcloud-build-ci-cd-samples']
 # https://cloud.google.com/cloud-build/docs/build-config to see the full list of
 # available options.
 options:
- logging: GCS_ONLY
+  logging: CLOUD_LOGGING_ONLY
