@@ -20,7 +20,7 @@ substitutions:
   _GKE_CLUSTER: 'blz-s-datagov-datahub-usw4-gke'
 steps:
 - name: 'gcr.io/$PROJECT_ID/helm'
-  args: ['upgrade', '--install', 'dockerwebapp', '.', '--set','image.repository=gcr.io/$PROJECT_ID/docker_web_app,image.tag=latest' ] # Replace image.tag=$SHORT_SHA'
+  args: ['upgrade', '--install', 'docker-web-app', '.', '--set','image.repository=gcr.io/$PROJECT_ID/docker_web_app,image.tag=latest' ] # Replace image.tag=$SHORT_SHA'
   #args: ['install', 'docker_web_app', '.', '--set','image.repository=gcr.io/$PROJECT_ID/docker_web_app,image.tag=latest' ] # Replace image.tag=$SHORT_SHA'
   env:
     - 'CLOUDSDK_COMPUTE_ZONE=$_GKE_ZONE'
