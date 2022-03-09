@@ -1,4 +1,4 @@
-# Default values for docker_web_app_helm.
+# Default values for helloworld-helm.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
