@@ -16,11 +16,11 @@
 # repository as source. Here we use the 'docker' image to build the image and
 # tag it with the name of the image.
 substitutions:
-  _GKE_ZONE: ''
-  _GKE_CLUSTER: ''
+  _GKE_ZONE: 'us-west4-a'
+  _GKE_CLUSTER: 'blz-s-datagov-datahub-usw4-gke'
 steps:
-- name: 'gcr.io/$PROJECT_ID/helm'
-  args: ['upgrade', '--install', 'r1', '.', '--set','image.repository=gcr.io/$PROJECT_ID/helloworld-webapp,image.tag=latest' ] # Replace image.tag=$SHORT_SHA'
+- name: 'us-west4-docker.pkg.dev/$PROJECT_ID/docker-repo/helm'
+  args: ['upgrade', '--install', 'relase1', '.', '--set','image.repository=us-west4-docker.pkg.dev/$PROJECT_ID/docker-repo/helloworld-webapp,image.tag=latest' ] # Replace image.tag=$SHORT_SHA'
   #args: ['install', 'r1', '.', '--set','image.repository=gcr.io/$PROJECT_ID/helloworld-webapp,image.tag=latest' ] # Replace image.tag=$SHORT_SHA'
   env:
     - 'CLOUDSDK_COMPUTE_ZONE=$_GKE_ZONE'
