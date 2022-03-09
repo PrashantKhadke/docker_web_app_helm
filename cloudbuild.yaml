@@ -16,19 +16,19 @@
 # repository as source. Here we use the 'docker' image to build the image and
 # tag it with the name of the image.
 substitutions:
-  _GKE_ZONE: 'us-west4-a'
-  _GKE_CLUSTER: 'blz-s-datagov-datahub-usw4-gke'
+  _GKE_ZONE: ''
+  _GKE_CLUSTER: ''
 steps:
 - name: 'gcr.io/$PROJECT_ID/helm'
-  args: ['upgrade', '--install', 'r1', '.', '--set','image.repository=gcr.io/$PROJECT_ID/docker-web-app,image.tag=latest' ] # Replace image.tag=$SHORT_SHA'
-  #args: ['install', 'helloworld-webapp', '.', '--set','image.repository=gcr.io/$PROJECT_ID/docker-web-app,image.tag=latest' ] # Replace image.tag=$SHORT_SHA'
+  args: ['upgrade', '--install', 'r1', '.', '--set','image.repository=gcr.io/$PROJECT_ID/helloworld-webapp,image.tag=latest' ] # Replace image.tag=$SHORT_SHA'
+  #args: ['install', 'r1', '.', '--set','image.repository=gcr.io/$PROJECT_ID/helloworld-webapp,image.tag=latest' ] # Replace image.tag=$SHORT_SHA'
   env:
     - 'CLOUDSDK_COMPUTE_ZONE=$_GKE_ZONE'
     - 'CLOUDSDK_CONTAINER_CLUSTER=$_GKE_CLUSTER'
     - 'DEBUG=true'
 
 # You can organize your builds with tags
-tags: ['helloworld-webapp']
+tags: ['helloworld']
 
 # You can configure more options than the ones listed here. Visit
 # https://cloud.google.com/cloud-build/docs/build-config to see the full list of
